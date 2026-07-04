@@ -32,6 +32,10 @@ export class Navbar {
     this.setMenuOpen(!this.isMenuOpen());
   }
 
+  closeMenu() {
+    this.setMenuOpen(false);
+  }
+
   // Point central : toute fermeture/ouverture passe par ici,
   // donc l'émission vers le parent ne peut jamais être oubliée
   private setMenuOpen(value: boolean) {

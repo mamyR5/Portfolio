@@ -124,6 +124,10 @@ $color-border: #f0f0f5;
 
   .description {
     font-size: 0.95rem;
+
+    @media(min-width:768px){
+        width: 36rem;
+    }
     color: $color-gray-dark;
     line-height: 1.6;
     margin-top: 0.5rem;
@@ -159,27 +163,31 @@ $color-border: #f0f0f5;
   }
 }
 
-// Liste de Badges
+// home.component.scss
+
 .skills-tags {
   list-style: none;
   padding: 0;
   margin: 0;
   
   display: flex;
-  flex-wrap: wrap; // Les badges s'adaptent et passent à la ligne si besoin
+  flex-wrap: wrap;
   gap: 0.6rem;
-  flex: 1; // Prend 1 part de l'espace restant
+  flex: 0.6;
 
-  // Alignement sur PC (on les oriente de façon à former un joli bloc compact à droite)
   @media (min-width: 768px) {
-    justify-content: flex-start;
-    align-content: center;
-      margin-left: 16rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); // 2 colonnes égales
+    gap: 0.8rem;
+    align-content: center;    
+    max-width: 560px; 
+    width: 100%;
   }
 
   .tag {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
     background-color: #ffffff;
     border: 1px solid $color-border;
@@ -188,6 +196,7 @@ $color-border: #f0f0f5;
     font-weight: 500;
     padding: 0.5rem 1rem;
     border-radius: 100px;
+    width: fit-content; 
 
     .icon-tag {
       width: 14px;
