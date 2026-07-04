@@ -1,0 +1,57 @@
+// layout.component.scss
+
+$bg-outer: #e6e8eb; // Le fond gris uni
+$bg-inner: #ffffff; // Le fond blanc des blocs
+$radius-navbar: 20px; // Arrondi plus léger pour la barre fine
+$radius-content: 28px; // Grand arrondi pour la zone de contenu
+$shadow-soft: 0 15px 35px rgba(0, 0, 0, 0.05); // Ombre douce
+
+.app-background {
+  background-color: $bg-outer;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0.5rem; 
+  margin: 1rem 1rem;
+  @media (min-width: 768px) {
+    padding: 2rem; 
+  }
+}
+
+.layout-wrapper {
+  width: 100%;
+  max-width: 1280px;
+  display: flex;
+  flex-direction: column;
+  
+  gap: 1rem; // Petit espace gris sur mobile
+
+  @media (min-width: 768px) {
+    gap: 1.5rem; // Plus grand espace gris sur ordinateur
+  }
+}
+
+// Style du bloc Navbar indépendant
+.navbar-block {
+  background-color: $bg-inner;
+  border-radius: $radius-navbar;
+  box-shadow: $shadow-soft;
+  overflow: hidden; // Garde les arrondis propres
+}
+
+// Style du bloc de contenu indépendant
+.content-block {
+  background-color: $bg-inner;
+  border-radius: $radius-content;
+  box-shadow: $shadow-soft;
+  // Par défaut (Mobile) : espace interne réduit
+  padding: 1.5rem;
+
+  // Sur ordinateur / tablette
+  @media (min-width: 768px) {
+    padding: 3rem; 
+  }
+
+  min-height: 70vh; // Hauteur minimale pour la zone de contenu
+}

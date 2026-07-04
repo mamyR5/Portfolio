@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'Inter';
+  src: url('./assets/fonts/Inter-VariableFont.ttf') format('truetype');
+  
+  // On indique que ce fichier gère tous les poids du très fin (100) au très gras (900)
+  font-weight: 100 900; 
+  
+  font-style: normal;
+  font-display: swap;
+}
+
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #e6e8eb; // Applique le fond uni directement sur toute la page
+}
+
+* {
+  font-family: 'Inter';
+}
+
+a {
+    text-decoration: none;
+}

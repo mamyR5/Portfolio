@@ -1,0 +1,28 @@
+<!-- navbar.component.html -->
+<nav class="navbar">
+    
+    <!-- Ce conteneur force le logo à gauche et le bouton à droite -->
+    <div class="navbar-header">
+        <div class="navbar-logo">
+            <span class="logo-badge">Hola!</span>
+        </div>
+
+        <button class="menu-toggle" [class.active]="isMenuOpen" (click)="toggleMenu()" aria-label="Ouvrir le menu">
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+        </button>
+    </div>
+
+    <!-- Cette liste sera invisible sur mobile par défaut, et apparaîtra en dessous au clic -->
+    <ul class="navbar-links" [class.open]="isMenuOpen">
+        @for(link of navLinks; track link.label) {
+            <li>
+                <a [routerLink]="[link.path]" routerLinkActive="active" (click)="isMenuOpen = false">
+                    {{ link.label }}
+                </a>
+            </li>
+        }
+    </ul>
+
+</nav>
