@@ -10,198 +10,205 @@ $color-border: #f0f0f5;
 
 // Conteneur centré pour toute la page d'accueil
 .home-container {
-  display: flex;
-  align-items: center;
-  width: 100%;
+    display: flex;
+    align-items: center;
+    width: 100%;
 }
 
 // La carte de profil blanche centrée
 .profile-card {
-  border-radius: $radius-card;
-  padding: 1rem;
-  width: 100%;
-  max-width: 550px; // Largeur de lecture idéale
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
+    border-radius: $radius-card;
+    padding: 0 0.5rem 0.5rem 0.5rem;
+    width: 100%;
+    max-width: 560px; // Largeur de lecture idéale
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 
-@media (min-width: 768px) {
-    max-width: 120rem; // On élargit la carte pour accueillir les deux colonnes
-    flex-direction: row; // Devient horizontal : Colonne gauche et Colonne droite côte à côte
-    justify-content: space-between;
-    align-items: center; // Aligne verticalement les deux blocs au centre de la carte
-    gap: 4rem; // Grand espace vide entre vos infos et les badges
-    padding: 1rem; 
-  }
+    @media (min-width: 1000px) {
+        max-width: 120rem; // On élargit la carte pour accueillir les deux colonnes
+        flex-direction: row; // Devient horizontal : Colonne gauche et Colonne droite côte à côte
+        justify-content: space-between;
+        align-items: center; // Aligne verticalement les deux blocs au centre de la carte
+        gap: 4rem; // Grand espace vide entre vos infos et les badges
+        padding: 1rem;
+    }
 
 
 }
 
 // Colonne de gauche (Infos personnelles)
 .profile-left {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  margin: 2rem;
-  flex: 1.3; // Prend un peu plus d'espace que la colonne des badges
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin: 1.2rem;
+
+    @media (min-width:768px) {
+        gap: 2rem;
+        margin: 2rem;
+    }
+
+    flex: 1.3; // Prend un peu plus d'espace que la colonne des badges
 }
 
 
 .profile-header {
-  display: flex;
-  
-  // 1. SUR MOBILE : Aligne les éléments en colonne (les uns sous les autres)
-  flex-direction: column;
-  align-items: flex-start; // Aligne tout à gauche
-  gap: 0.5rem; // Espacement vertical serré pour le nom de famille et le prénom
+    display: flex;
 
-  // 2. SUR ORDINATEUR / TABLETTE (Écrans de plus de 600px)
-  @media (min-width: 600px) {
-    flex-direction: row; // Aligne les éléments sur une seule ligne horizontale
-    align-items: center; // Aligne le logo et le texte au centre verticalement
-    gap: 1rem; // Espacement horizontal plus large
-  }
+    // 1. SUR MOBILE : Aligne les éléments en colonne (les uns sous les autres)
+    flex-direction: column;
+    align-items: flex-start; // Aligne tout à gauche
+    gap: 0.5rem; // Espacement vertical serré pour le nom de famille et le prénom
 
-  .avatar {
-    width: 56px;
-    height: 56px;
-    border-radius: 14px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    object-fit: cover;
-    margin-bottom: 0.5rem; // Ajoute un petit espace sous l'avatar en mode colonne
-
+    // 2. SUR ORDINATEUR / TABLETTE (Écrans de plus de 600px)
     @media (min-width: 600px) {
-      margin-bottom: 0; // Enlève l'espace du bas sur grand écran
+        flex-direction: row; // Aligne les éléments sur une seule ligne horizontale
+        align-items: center; // Aligne le logo et le texte au centre verticalement
+        gap: 1rem; // Espacement horizontal plus large
     }
-  }
 
-  .name {
-    font-size: 1.4rem; 
-    font-weight: 700;
-    color: $color-dark;
-    letter-spacing: -0.5px;
-    line-height: 1.1;
-    margin: 0; // Supprime les marges par défaut pour un alignement précis
-    
-    // On retire 'word-break' car la colonne offre désormais assez d'espace pour ne pas couper le mot
-    word-break: normal; 
+    .avatar {
+        width: 56px;
+        height: 56px;
+        border-radius: 14px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        object-fit: cover;
+        margin-bottom: 0.5rem; // Ajoute un petit espace sous l'avatar en mode colonne
 
-    @media (min-width: 600px) {
-      font-size: 2rem; 
+        @media (min-width: 600px) {
+            margin-bottom: 0; // Enlève l'espace du bas sur grand écran
+        }
     }
-  }
+
+    .name {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: $color-dark;
+        letter-spacing: -0.5px;
+        line-height: 1.1;
+        margin: 0; // Supprime les marges par défaut pour un alignement précis
+
+        // On retire 'word-break' car la colonne offre désormais assez d'espace pour ne pas couper le mot
+        word-break: normal;
+
+        @media (min-width: 600px) {
+            font-size: 2rem;
+        }
+    }
 }
 
 // Section Biographie / Textes
 .profile-bio {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
 
-  .main-title {
-    font-size: 2rem;
-    font-weight: 700;
-    color: $color-dark;
-    letter-spacing: -0.8px;
-    line-height: 1.2;
+    .main-title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: $color-dark;
+        letter-spacing: -0.8px;
+        line-height: 1.2;
 
-    @media (min-width: 600px) {
-      font-size: 2.4rem;
+        @media (min-width: 600px) {
+            font-size: 2.4rem;
+        }
     }
-  }
 
-  .subtitle {
-    font-size: 1.15rem;
-    font-weight: 500;
-    color: $color-gray-dark;
-    letter-spacing: -0.3px;
+    .subtitle {
+        font-size: 1.15rem;
+        font-weight: 500;
+        color: $color-gray-dark;
+        letter-spacing: -0.3px;
 
-    .highlight-itu {
-      color: $color-gray-dark;
-      font-weight: 600;
+        .highlight-itu {
+            color: $color-gray-dark;
+            font-weight: 600;
+        }
     }
-  }
 
-  .description {
-    font-size: 0.95rem;
+    .description {
+        font-size: 0.95rem;
 
-    @media(min-width:768px){
-        width: 36rem;
+        @media(min-width:768px) {
+            width: 36rem;
+        }
+
+        color: $color-gray-dark;
+        line-height: 1.6;
+        margin-top: 0.5rem;
     }
-    color: $color-gray-dark;
-    line-height: 1.6;
-    margin-top: 0.5rem;
-  }
 }
 
 // Bouton d'action
 .cta-container {
-  .btn-discuss {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    background-color: $color-dark;
-    color: #ffffff;
-    border: none;
-    padding: 0.8rem 1.6rem;
-    border-radius: 100px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s ease, background-color 0.2s ease;
+    .btn-discuss {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        background-color: $color-dark;
+        color: #ffffff;
+        border: none;
+        padding: 0.8rem 1.6rem;
+        border-radius: 100px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        cursor: pointer;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        transition: transform 0.2s ease, background-color 0.2s ease;
 
-    &:hover {
-      background-color: #222222;
-      transform: translateY(-2px);
-    }
+        &:hover {
+            background-color: #222222;
+            transform: translateY(-2px);
+        }
 
-    .icon {
-      width: 18px;
-      height: 18px;
+        .icon {
+            width: 18px;
+            height: 18px;
+        }
     }
-  }
 }
 
 // home.component.scss
 
 .skills-tags {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  flex: 0.6;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 
-  @media (min-width: 768px) {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); // 2 colonnes égales
-    gap: 0.8rem;
-    align-content: center;    
-    max-width: 560px; 
-    width: 100%;
-  }
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    flex: 0.6;
 
-  .tag {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    background-color: #ffffff;
-    border: 1px solid $color-border;
-    color: $color-dark;
-    font-size: 0.85rem;
-    font-weight: 500;
-    padding: 0.5rem 1rem;
-    border-radius: 100px;
-    width: fit-content; 
-
-    .icon-tag {
-      width: 14px;
-      height: 14px;
-      color: $color-gray-dark;
+    @media (min-width: 1000px) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); // 2 colonnes égales
+        gap: 0.8rem;
+        align-content: center;
+        max-width: 560px;
+        width: 100%;
     }
-  }
+
+    .tag {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        background-color: #ffffff;
+        border: 1px solid $color-border;
+        color: $color-dark;
+        font-size: 0.85rem;
+        font-weight: 500;
+        padding: 0.5rem 1rem;
+        border-radius: 100px;
+        width: fit-content;
+
+        .icon-tag {
+            width: 14px;
+            height: 14px;
+            color: $color-gray-dark;
+        }
+    }
 }
