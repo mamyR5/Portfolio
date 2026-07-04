@@ -16,10 +16,16 @@ body, html {
   padding: 0;
   height: 100%;
   background-color: #e6e8eb; // Applique le fond uni directement sur toute la page
+  overflow-x: hidden; 
 }
 
 * {
   font-family: 'Inter';
+}
+
+body.no-scroll {
+  overflow: hidden;
+  height: 100vh;
 }
 
 a {

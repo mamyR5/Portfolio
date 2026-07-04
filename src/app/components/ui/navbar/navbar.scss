@@ -6,6 +6,8 @@
   align-items: center;
   padding: 1.2rem 1.5rem;
   background: transparent;
+  position: relative;
+  z-index: 1000;
 
   @media (min-width: 600px) {
     padding: 1.2rem 2.5rem;
@@ -18,25 +20,22 @@
   align-items: center;
   width: 100%;
 
-  @media (min-width: 600px) {
+  @media (min-width: 700px) {
     width: auto;
   }
 
   .logo-badge {
-    background-color: #f5f5f7;
     color: #111111;
     padding: 0.6rem 1.2rem;
     border-radius: 100px;
     font-weight: 700;
     font-size: 1.1rem;
     letter-spacing: -0.5px;
-    z-index: 1001; // S'assure que le logo reste visible au-dessus de la sidebar
   }
 }
 
 // Bouton Hamburger
 .menu-toggle {
-  position: static;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -46,9 +45,9 @@
   border: none;
   cursor: pointer;
   padding: 0;
-  z-index: 1001; // INDISPENSABLE : place le bouton au-dessus de la sidebar pour pouvoir la fermer
+  z-index: 1001; // INDISPENSABLE : place le bouton au-dessus dU sidebar pour pouvoir la fermer
 
-  @media (min-width: 600px) {
+  @media (min-width: 700px) {
     display: none;
   }
 
@@ -63,11 +62,20 @@
   &.active {
     .hamburger-bar {
       // Les barres deviennent blanches ou restent sombres selon vos préférences
-      background-color: #111111; 
-      
-      &:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-      &:nth-child(2) { opacity: 0; transform: translateX(-10px); }
-      &:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+      background-color: #111111;
+
+      &:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+        transform: translateX(-10px);
+      }
+
+      &:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
     }
   }
 
@@ -77,18 +85,18 @@
 .navbar-links {
   list-style: none;
   margin: 0;
-  
+
   // Style de la Sidebar sur Mobile
   position: fixed;
   top: 0;
   right: 0;
-  width: 12rem;          // Largeur de votre menu latéral
-  height: 100vh;         // Prend toute la hauteur de l'écran
+  width: 12rem; // Largeur de votre menu latéral
+  height: 100vh; // Prend toute la hauteur de l'écran
   background-color: #ffffff;
   box-shadow: -10px 0 30px rgba(0, 0, 0, 0.08); // Ombre portée sur la gauche
-  z-index: 1000;         // Un peu en dessous du bouton hamburger (1001)
+  z-index: 1000; // Un peu en dessous du bouton hamburger (1001)
 
-  display: flex; 
+  display: flex;
   flex-direction: column;
   align-items: flex-start; // Aligne les liens à gauche à l'intérieur du menu
   padding: 6rem 2.5rem 2rem 2.5rem; // Grand padding-top pour laisser de la place au bouton de fermeture
@@ -101,19 +109,20 @@
   // Quand le menu est ouvert
   &.open {
     transform: translateX(0); // Glisse vers la gauche pour entrer sur l'écran
+    overflow: hidden;
   }
 
   // RE-INITIALISATION SUR ORDINATEUR (PC)
-  @media (min-width: 600px) {
-    position: static;     // Annule la position fixe
+  @media (min-width: 700px) {
+    position: static;
     width: auto;
     height: auto;
     background-color: transparent;
     box-shadow: none;
     padding: 0;
     gap: 2.5rem;
-    flex-direction: row;  // Réaligne les liens horizontalement
-    transform: none;      // Désactive l'animation de glissement
+    flex-direction: row; // Réaligne les liens horizontalement
+    transform: none; // Désactive l'animation de glissement
     transition: none;
   }
 
@@ -128,7 +137,8 @@
       font-size: 0.95rem;
     }
 
-    &:hover, &.active {
+    &:hover,
+    &.active {
       color: #111111;
     }
   }

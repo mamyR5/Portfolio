@@ -1,14 +1,12 @@
-<!-- layout.component.html -->
+<!-- layout.html -->
 <div class="app-background">
   <div class="layout-wrapper">
-    
-    <!-- Premier bloc blanc : La Navbar -->
+
     <header class="navbar-block">
-      <app-navbar></app-navbar>
+      <app-navbar (menuStateChange)="onMenuStateChange($event)"></app-navbar>
     </header>
 
-    <!-- Deuxième bloc blanc : Le Contenu -->
-    <main class="content-block">
+    <main class="content-block no-scroll">
       <router-outlet></router-outlet>
     </main>
 

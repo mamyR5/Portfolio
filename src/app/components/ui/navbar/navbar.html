@@ -7,7 +7,7 @@
             <span class="logo-badge">Hola!</span>
         </div>
 
-        <button class="menu-toggle" [class.active]="isMenuOpen" (click)="toggleMenu()" aria-label="Ouvrir le menu">
+        <button class="menu-toggle" [class.active]="isMenuOpen()" (click)="toggleMenu()" aria-label="Ouvrir le menu">
             <span class="hamburger-bar"></span>
             <span class="hamburger-bar"></span>
             <span class="hamburger-bar"></span>
@@ -15,10 +15,10 @@
     </div>
 
     <!-- Cette liste sera invisible sur mobile par défaut, et apparaîtra en dessous au clic -->
-    <ul class="navbar-links" [class.open]="isMenuOpen">
+    <ul class="navbar-links" [class.open]="isMenuOpen()">
         @for(link of navLinks; track link.label) {
             <li>
-                <a [routerLink]="[link.path]" routerLinkActive="active" (click)="isMenuOpen = false">
+                <a [routerLink]="[link.path]" routerLinkActive="active" (click)="isMenuOpen.set(false)">
                     {{ link.label }}
                 </a>
             </li>

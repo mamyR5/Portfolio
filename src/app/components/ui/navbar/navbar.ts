@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+// navbar.ts
+import { Component, ElementRef, EventEmitter, HostListener, Output, signal } from '@angular/core';
 import { RouterLink } from "@angular/router";
 
 interface NavLink {
@@ -14,32 +15,35 @@ interface NavLink {
 })
 export class Navbar {
 
-  isMenuOpen = false; // Le menu est fermé par défaut
+  isMenuOpen = signal(false);
+
+  @Output() menuStateChange = new EventEmitter<boolean>();
 
   navLinks: NavLink[] = [
-    {
-      path: '/about',
-      label: 'About'
-    },
-    {
-      path: '/skills',
-      label: 'Skills'
-    },
-    {
-      path: '/projects',
-      label: 'Projects'
-    }
-
+    { path: '/', label: 'Acceuil' },
+    { path: '/about', label: 'À propos' },
+    { path: '/skills', label: 'Compétences' },
+    { path: '/projects', label: 'Projets' }
   ];
 
-  toggleMenu() {
-    if(this.isMenuOpen){
-      console.log('Misokatra ilay hamburger...');
-    }else{
-      console.log('Mihidy ilay hamburger...');
-    }
+  constructor(private elementRef: ElementRef) {}
 
-    this.isMenuOpen = !this.isMenuOpen;
+  toggleMenu() {
+    this.setMenuOpen(!this.isMenuOpen());
+  }
+
+  // Point central : toute fermeture/ouverture passe par ici,
+  // donc l'émission vers le parent ne peut jamais être oubliée
+  private setMenuOpen(value: boolean) {
+    this.isMenuOpen.set(value);
+    this.menuStateChange.emit(this.isMenuOpen());
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent) {
+    if (this.isMenuOpen() && !this.elementRef.nativeElement.contains(event.target)) {
+      this.setMenuOpen(false);
+    }
   }
 
 }
