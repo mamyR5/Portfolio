@@ -32,7 +32,7 @@
             <div class="cta-container">
 
                 <!-- Bouton Projets -->
-                <button class="btn-discuss">
+                <button class="btn-discuss" [routerLink]="['/projects']">
                     <svg class="icon" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2">
                         <path
@@ -41,8 +41,14 @@
                     Mes projets
                 </button>
 
-                <!-- Bouton CV (avec une nouvelle icône SVG de téléchargement) -->
-                <button class="btn-discuss">
+                <!-- home.component.html -->
+
+                <!-- On utilise une balise <a> avec la même classe '.btn-discuss' pour garder le même style visuel -->
+                <a href="/CV-RANDRIAMAROZAKA-Mamy.pdf"
+                    download="CV-RANDRIAMAROZAKA-Mamy.pdf"
+                    class="btn-discuss">
+
+                    <!-- L'icône de téléchargement SVG -->
                     <svg class="icon" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2">
                         <path
@@ -51,8 +57,8 @@
                         <line x1="12" y1="15" x2="12" y2="3"></line>
                     </svg>
                     Télécharger mon CV
-                </button>
 
+                </a>
             </div>
 
         </div>
