@@ -1,1 +1,45 @@
-<p>projects works!</p>
+<!-- projects.html -->
+<section class="projects-section">
+  
+  <header class="section-intro">
+    <h2>Mes Réalisations</h2>
+    <p>{{ introSentence }}</p>
+  </header>
+
+  <div class="projects-grid">
+    
+    @for(project of projectsList; track project.id) {
+      <article class="project-card">
+        
+        <!-- HAUT DE CARTE : Image de couverture avec dégradé doux -->
+        <div class="card-cover" [style.background-image]="'url(' + project.coverImage + ')'">
+          <div class="cover-overlay">
+            
+            <div class="cover-info">
+              <h3>{{ project.title }}</h3>
+              <p>{{ project.subtitle }}</p>
+            </div>
+            
+            <button class="btn-action" aria-label="Voir le code source">
+              Source Code
+            </button>
+            
+          </div>
+        </div>
+
+        <!-- BAS DE CARTE : Uniquement la date et la description -->
+        <div class="card-details">
+          
+          <div class="details-left">
+            <span class="period-badge">{{ project.period }}</span>
+            <p class="project-desc">{{ project.description }}</p>
+          </div>
+
+         
+        </div>
+
+      </article>
+    }
+
+  </div>
+</section>

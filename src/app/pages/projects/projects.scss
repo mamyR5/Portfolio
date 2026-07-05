@@ -1,0 +1,167 @@
+// projects.scss
+
+$bg-card: #ffffff;
+$radius-card: 32px;       // Grand arrondi pour la carte principale (comme le modèle)
+$radius-image: 24px;      // Arrondi propre pour l'image de couverture
+$shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.06);
+$color-dark: #111111;
+$color-border: #f0f0f5;
+$color-gray-dark: #6e6e73;
+$color-primary: #1d2329;
+
+.projects-section {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  width: 100%;
+  padding: 1rem 0;
+}
+
+.section-intro {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: $color-dark;
+    letter-spacing: -0.8px;
+  }
+
+  p {
+    font-size: 0.95rem;
+    color: $color-gray-dark;
+    line-height: 1.6;
+  }
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  width: 100%;
+  justify-items: center;
+
+  @media (width >= 1000px) {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+}
+
+// projects.scss
+
+.project-card {
+  box-sizing: border-box; 
+  
+  background-color: $bg-card;
+  border-radius: $radius-card;
+  box-shadow: $shadow-soft;
+  
+  // 2. CORRECTION CLÉ : Prend tout l'écran sur mobile sans jamais pouvoir déborder
+  width: 100%;
+  max-width: 100%; 
+  
+  border: 1px $color-border solid;
+  padding: 1.2rem; 
+  display: flex;
+  flex-direction: column;
+
+  // À partir de 600px de large (tablette/PC), on peut lui donner sa taille maximale élégante
+  @media (min-width: 600px) {
+    max-width: 500px; 
+  }
+}
+
+// 1. Haut de carte (L'image flottante)
+.card-cover {
+  width: 100%;
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  background-color: #f2f2f5;
+  
+  // CORRECTION CLÉ : L'image a ses propres angles arrondis complets
+  border-radius: $radius-image; 
+  overflow: hidden; // Assure que le dégradé épouse l'arrondi de l'image
+
+  .cover-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.2rem; // Léger espacement interne pour le texte blanc
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 65%);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .cover-info {
+    color: #ffffff;
+    
+    h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.1rem;
+      letter-spacing: -0.4px;
+    }
+
+    p {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.75);
+    }
+  }
+
+  .btn-action {
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    padding: 0.6rem 1.2rem;
+    border-radius: 12px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.28);
+    }
+  }
+}
+
+// 2. Bas de carte (Détails alignés avec l'image)
+.card-details {
+  // On met un padding haut/bas, et un très léger padding gauche/droite 
+  // pour que le texte s'aligne parfaitement avec les bords de l'image au-dessus
+  padding: 1.2rem 0.4rem 0.4rem 0.4rem; 
+  display: flex;
+  background-color: transparent; // Devient transparent pour utiliser le fond de la carte
+}
+
+.details-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+
+  .period-badge {
+    color: $color-primary; // Couleur verte de votre thème
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+  }
+
+  .project-desc {
+    font-size: 0.88rem;
+    color: $color-gray-dark;
+    line-height: 1.55;
+  }
+}
