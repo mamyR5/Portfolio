@@ -132,14 +132,22 @@
     font-size: 1.05rem; // Légèrement plus grand sur mobile pour faciliter le clic au doigt
     transition: color 0.2s ease;
     padding: 0.5rem;
+    text-decoration: none; // Enlève le soulignement par défaut
+    cursor: pointer;     
+    color: inherit;
 
     @media (min-width: 600px) {
       font-size: 0.95rem;
     }
 
+    &:visited, &:active, &:focus {
+    outline: none;       // Enlève la bordure de focus par défaut (attention à l'accessibilité)
+     color: inherit;
+  }
+
     &:hover,
     &.active {
-      color: #111111;
+      color: #11111159;
     }
   }
 }
