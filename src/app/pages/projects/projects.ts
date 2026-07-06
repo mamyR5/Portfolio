@@ -16,7 +16,7 @@ export class Projects implements OnInit {
   
   private projectService = inject(ProjectService);
   
-  introSentence = "Découvrez les projets clés réalisés durant mon cursus à l'IT University, illustrant mes compétences du design de base de données à l'intégration FullStack.";
+  introSentence = "Découvrez les projets clés réalisés durant mon cursus, illustrant mes compétences du design de base de données à l'intégration FullStack.";
   projectsList: ProjectData[] = [];
   
   // 2. L'état qui mémorise quel projet est actuellement ouvert dans la modale (null = fermé)

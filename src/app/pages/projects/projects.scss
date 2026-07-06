@@ -1,8 +1,8 @@
 // projects.scss
 
 $bg-card: #ffffff;
-$radius-card: 32px;       // Grand arrondi pour la carte principale (comme le modèle)
-$radius-image: 24px;      // Arrondi propre pour l'image de couverture
+$radius-card: 32px; // Grand arrondi pour la carte principale (comme le modèle)
+$radius-image: 24px; // Arrondi propre pour l'image de couverture
 $shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.06);
 $color-dark: #111111;
 $color-border: #f0f0f5;
@@ -46,7 +46,7 @@ $color-primary: #1d2329;
   width: 100%;
   justify-items: center;
 
-  @media (width >= 1000px) {
+  @media (width >=1000px) {
     grid-template-columns: repeat(2, 1fr);
     max-width: 1100px;
     margin: 0 auto;
@@ -56,24 +56,24 @@ $color-primary: #1d2329;
 // projects.scss
 
 .project-card {
-  box-sizing: border-box; 
-  
+  box-sizing: border-box;
+
   background-color: $bg-card;
   border-radius: $radius-card;
   box-shadow: $shadow-soft;
-  
+
   // 2. CORRECTION CLÉ : Prend tout l'écran sur mobile sans jamais pouvoir déborder
   width: 100%;
-  max-width: 100%; 
-  
+  max-width: 100%;
+
   border: 1px $color-border solid;
-  padding: 1.2rem; 
+  padding: 1.2rem;
   display: flex;
   flex-direction: column;
 
   // À partir de 600px de large (tablette/PC), on peut lui donner sa taille maximale élégante
   @media (min-width: 600px) {
-    max-width: 500px; 
+    max-width: 500px;
   }
 }
 
@@ -85,9 +85,9 @@ $color-primary: #1d2329;
   background-position: center;
   position: relative;
   background-color: #f2f2f5;
-  
+
   // CORRECTION CLÉ : L'image a ses propres angles arrondis complets
-  border-radius: $radius-image; 
+  border-radius: $radius-image;
   overflow: hidden; // Assure que le dégradé épouse l'arrondi de l'image
 
   .cover-overlay {
@@ -104,7 +104,7 @@ $color-primary: #1d2329;
 
   .cover-info {
     color: #ffffff;
-    
+
     h3 {
       font-size: 1.3rem;
       font-weight: 700;
@@ -141,7 +141,7 @@ $color-primary: #1d2329;
 .card-details {
   // On met un padding haut/bas, et un très léger padding gauche/droite 
   // pour que le texte s'aligne parfaitement avec les bords de l'image au-dessus
-  padding: 1.2rem 0.4rem 0.4rem 0.4rem; 
+  padding: 1.2rem 0.4rem 0.4rem 0.4rem;
   display: flex;
   background-color: transparent; // Devient transparent pour utiliser le fond de la carte
 }
@@ -163,5 +163,45 @@ $color-primary: #1d2329;
     font-size: 0.88rem;
     color: $color-gray-dark;
     line-height: 1.55;
+  }
+
+   
+
+  .btn-git {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center; // Centre le texte et l'icône à l'intérieur du bouton
+    gap: 0.6rem;
+    background-color: $color-dark;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    padding: 0.8rem 1.2rem;
+    border-radius: 16px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+
+    width: 100%;
+    max-width: 260px;
+
+
+    @media (min-width:900px) {
+      width: 100%;
+      max-width: 200px;
+    }
+
+    &:hover {
+      background-color: #222222;
+      transform: translateY(-2px);
+    }
+
+
+    .icon {
+      width: 18px;
+      height: 18px;
+      color: white;
+    }
   }
 }

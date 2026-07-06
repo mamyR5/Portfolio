@@ -11,6 +11,7 @@ export interface ProjectData {
   title: string;
   subtitle: string;
   period: string;
+  gitUrl:string;
   category: string;
   description: string;
   features: string[];
@@ -28,6 +29,7 @@ export class ProjectService {
   private svgLogos = {
     angular: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg",
     nodejs: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg",
+    express:"https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg",
     springboot: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg",
     postgresql: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg",
     sqlserver: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-original.svg",
@@ -45,6 +47,7 @@ export class ProjectService {
       title: "Gestion de Cinéma",
       subtitle: "Java Servlet & PostgreSQL",
       period: "Janv 2026 - Fév 2026",
+      gitUrl:"https://github.com/mamyR5/cinema",
       category: "Projet Académique",
       description: "Application de gestion de cinéma avec tarification des sièges par séance (total des billets par tarif, par siège) et suivi des paiements de contrats publicitaires avec facturation mensuelle par société.",
       features: [
@@ -83,6 +86,7 @@ export class ProjectService {
       title: "Gestion d'Élevage",
       subtitle: "Angular & NodeJS / Express",
       period: "Mars 2026 - Avril 2026",
+      gitUrl:"https://github.com/mamyR5/Backend-Frontend-Akoho",
       category: "Projet Académique",
       description: "Suivi d'élevage de poules pondeuses : gestion des lots d'œufs, recensement par race (prix de vente, coûts, poids) et génération de rapports de situation sur intervalles de dates.",
       features: [
@@ -94,6 +98,7 @@ export class ProjectService {
       technologies: [
         { name: "Angular 21", svgIconUrl: this.svgLogos.angular },
         { name: "NodeJS", svgIconUrl: this.svgLogos.nodejs },
+        {name:"Express",svgIconUrl:this.svgLogos.express},
         { name: "SQL Server", svgIconUrl: this.svgLogos.sqlserver},
         { name:"TailwindCSS",svgIconUrl:this.svgLogos.tailwindcss}
       ],
@@ -116,6 +121,7 @@ export class ProjectService {
       title: "Gestion de Bibliothèque",
       subtitle: "SpringBoot & PostgreSQL",
       period: "Juin 2025 - Juillet 2025",
+      gitUrl:"https://github.com/mamyR5/Spring-Biblioth-que",
       category: "Projet Académique",
       description: "Application destinée aux bibliothécaires pour la gestion des emprunts, prolongations et retours de livres. Catalogue avec filtre par catégorie et auteur.",
       features: [

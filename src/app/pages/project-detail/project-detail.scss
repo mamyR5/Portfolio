@@ -247,10 +247,6 @@ $color-primary: #1f2021;
     border-radius: 20px;
     transition: transform 0.3s ease-in-out;
 
-    &:hover {
-      transform: scale(1.03);
-      cursor: zoom-out;
-    }
   }
 
   // Le badge se calera désormais PILE sur le bas de l'image réelle
