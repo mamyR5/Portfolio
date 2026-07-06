@@ -1,0 +1,259 @@
+// skills.scss
+
+$radius-main: 24px;
+$radius-inner: 16px;
+$shadow-soft: 0 15px 35px rgba(0, 0, 0, 0.05);
+$color-dark: #111111;
+$color-gray-dark: #6e6e73;
+$color-border: rgba(232, 232, 237, 0.4);
+
+.skills-section {
+    box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 2rem 1.8rem;
+
+  @media (min-width: 800px) {
+    max-width: 900px;
+    padding: 2rem;
+  }
+}
+
+// En-tête avec phrase d'accroche intégrée
+.section-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+
+  h2 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: $color-dark;
+    letter-spacing: -0.6px;
+    margin: 0;
+  }
+
+  .intro-text {
+    font-size: 0.95rem;
+    color: $color-gray-dark;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+// ORGANISATEUR RESPONSIVE SIMPLE
+.skills-layout {
+  display: flex;
+  flex-direction: column; // Mobile : la navigation est au-dessus, les cartes en dessous
+  gap: 1.8rem;
+  width: 100%;
+
+  @media (min-width: 800px) {
+    flex-direction: row; // PC : Navigation à GAUCHE, Résultat à DROITE
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 3.2rem;
+  }
+}
+
+// 1. ZONE DE NAVIGATION (Gauche sur PC)
+.skills-navigation-pane {
+  width: 100%;
+
+  @media (min-width: 800px) {
+    width: 240px; // Largeur de la colonne d'onglets à gauche
+    position: sticky;
+    top: 2rem;
+  }
+}
+
+// A. VERSION MOBILE
+.mobile-select {
+  position: relative;
+  width: 100%;
+
+  @media (min-width: 800px) {
+    display: none;
+  }
+
+  .select-trigger {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid $color-border;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: $radius-inner;
+    color: $color-dark;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.03);
+
+    .arrow-icon {
+      width: 18px;
+      height: 18px;
+      color: $color-gray-dark;
+      transition: transform 0.3s ease;
+    }
+
+    &.active {
+      border-color: $color-dark;
+      .arrow-icon { transform: rotate(180deg); }
+    }
+  }
+
+  .select-dropdown {
+    box-sizing: border-box;
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid $color-border;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: $radius-inner;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    z-index: 100;
+
+    .dropdown-option {
+      background: transparent;
+      border: none;
+      padding: 0.9rem 1.2rem;
+      text-align: left;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: $color-gray-dark;
+      border-radius: 10px;
+      cursor: pointer;
+
+      &.selected {
+        background-color: $color-dark;
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+// B. VERSION DESKTOP (Onglets à gauche)
+.desktop-tabs-column {
+  display: none;
+
+  @media (min-width: 800px) {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid $color-border;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 0.6rem;
+    border-radius: $radius-main;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.03);
+  }
+
+  .tab-btn {
+    background: transparent;
+    border: none;
+    padding: 0.9rem 1.2rem;
+    text-align: left;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: $color-gray-dark;
+    border-radius: $radius-inner;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+
+    &:hover {
+      background-color: rgba(17, 17, 17, 0.04);
+      color: $color-dark;
+      transform: translateX(3px); // Effet de glissement vers la droite
+    }
+
+    &.active {
+      background-color: $color-dark;
+      color: #ffffff;
+
+      &:hover {
+        transform: none;
+      }
+    }
+  }
+}
+
+// 2. ZONE DE RÉSULTATS (Droite sur PC)
+.skills-display-container {
+  flex: 1; // Occupe toute la largeur à droite
+  animation: fadeIn 0.3s ease;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.8rem;
+  width: 100%;
+
+  @media (min-width: 480px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+}
+
+.tech-card {
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border: 1px solid #e8e8ed;
+  border-radius: 16px;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.04);
+  }
+
+  .tech-logo {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    filter: grayscale(1);
+    opacity: 0.6;
+    transition: filter 0.2s ease, opacity 0.2s ease;
+  }
+
+  &:hover .tech-logo {
+    filter: grayscale(0);
+    opacity: 1;
+  }
+
+  .tech-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: $color-dark;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

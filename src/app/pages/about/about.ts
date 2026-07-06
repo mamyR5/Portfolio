@@ -21,6 +21,8 @@ interface MinimalEducation {
 export class About {
   private sanitizer = inject(DomSanitizer);
 
+   introSentence = "Voici les formations que j'ai fait durant mon parcours.";
+
   icons = {
     university: `<svg viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"></path></svg>`,
     school: `<svg viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>`,
@@ -31,7 +33,7 @@ export class About {
     {
       period: "Sept 2023 - Présent",
       degree: "Licence en Informatique (3ème année)",
-      details: "Spécialisation dans l'option Web & Design web modernes et l'intégration FullStack.",
+      details: "Spécialisation dans l'option Web & Design.",
       svgIcon: this.icons.university,
       institution:'IT University'
     },

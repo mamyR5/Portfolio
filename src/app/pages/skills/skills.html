@@ -1,1 +1,66 @@
-<p>skills works!</p>
+<!-- skills.html -->
+<section class="skills-section">
+
+  <!-- En-tête avec titre et phrase d'accroche -->
+  <header class="section-header">
+    <h2>Compétences</h2>
+    <p class="intro-text">{{ introSentence }}</p>
+  </header>
+
+  <div class="skills-layout">
+    
+    <!-- COLONNE GAUCHE (Sur PC) : La navigation (Dropdown sur mobile / Onglets sur PC) -->
+    <div class="skills-navigation-pane">
+      
+      <!-- A. SÉLECTEUR MOBILE -->
+      <div class="mobile-select">
+        <button class="select-trigger" (click)="toggleDropdown()" [class.active]="isDropdownOpen()">
+          <span>{{ activeCategory.label }}</span>
+          <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+
+        @if(isDropdownOpen()) {
+          <div class="select-dropdown">
+            @for(cat of skillsData; track cat.id) {
+              <button 
+                class="dropdown-option" 
+                [class.selected]="cat.id === selectedCategory()" 
+                (click)="selectCategory(cat.id)">
+                {{ cat.label }}
+              </button>
+            }
+          </div>
+        }
+      </div>
+
+      <!-- B. COLONNE D'ONGLETS PC (Sera positionnée à gauche) -->
+      <div class="desktop-tabs-column">
+        @for(cat of skillsData; track cat.id) {
+          <button 
+            class="tab-btn" 
+            [class.active]="cat.id === selectedCategory()" 
+            (click)="selectCategory(cat.id)">
+            {{ cat.label }}
+          </button>
+        }
+      </div>
+
+    </div>
+    
+    <!-- COLONNE DROITE (Sur PC) : La grille de cartes de technologies actives -->
+    <div class="skills-display-container">
+      <div class="skills-grid">
+        @for(tech of activeCategory.items; track tech.name) {
+          <div class="tech-card">
+            <img [src]="tech.iconUrl" [alt]="tech.name" class="tech-logo">
+            <span class="tech-name">{{ tech.name }}</span>
+          </div>
+        }
+      </div>
+    </div>
+
+  </div>
+
+</section>

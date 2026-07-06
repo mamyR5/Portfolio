@@ -10,6 +10,7 @@ $color-border: #f0f0f5;
 
 // Conteneur centré pour toute la page d'accueil
 .home-container {
+  box-sizing: border-box;
     display: flex;
     align-items: center;
     width: 100%;
@@ -147,6 +148,7 @@ $color-border: #f0f0f5;
 // home.component.scss
 
 .cta-container {
+  box-sizing: border-box;
   display: flex;
   
   // 1. SUR MOBILE : Les boutons s'empilent verticalement
@@ -164,6 +166,7 @@ $color-border: #f0f0f5;
 
   .btn-discuss {
     display: inline-flex;
+    box-sizing: border-box;
     align-items: center;
     justify-content: center; // Centre le texte et l'icône à l'intérieur du bouton
     gap: 0.6rem;

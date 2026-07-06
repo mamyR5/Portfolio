@@ -23,5 +23,6 @@ export const routes: Routes = [
                 path: 'projects', component: Projects
             }
         ]
-    }
+    },
+    { path: '**', redirectTo: '', pathMatch: 'full' }
 ];

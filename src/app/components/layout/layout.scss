@@ -57,5 +57,5 @@ $shadow-soft: 0 15px 35px rgba(0, 0, 0, 0.05); // Ombre douce
   margin-bottom: 2rem;
 
 
-  min-height: 70vh; // Hauteur minimale pour la zone de contenu
+  min-height: max-content; // Hauteur minimale pour la zone de contenu
 }
