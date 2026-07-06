@@ -165,11 +165,12 @@ $color-primary: #1d2329;
     line-height: 1.55;
   }
 
-   
+
 
   .btn-git {
     display: inline-flex;
     align-items: center;
+    box-sizing: border-box;
     justify-content: center; // Centre le texte et l'icône à l'intérieur du bouton
     gap: 0.6rem;
     background-color: $color-dark;
@@ -184,7 +185,7 @@ $color-primary: #1d2329;
     transition: transform 0.2s ease, background-color 0.2s ease;
 
     width: 100%;
-    max-width: 260px;
+    max-width: 240px;
 
 
     @media (min-width:900px) {

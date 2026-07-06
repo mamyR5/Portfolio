@@ -1,1 +1,30 @@
-<p>about works!</p>
+<!-- about.html -->
+<section class="about-section">
+  
+  <header class="section-header">
+    <h2>Education</h2>
+  </header>
+
+  <!-- Grille flexible responsive (Flex-wrap) -->
+  <div class="education-grid">
+    @for(item of educationPath; track item.degree) {
+      <div class="education-card">
+        
+        <!-- Boîtier d'icône minimaliste circulaire (Line-Art) -->
+        <div class="icon-circle">
+          <span [innerHTML]="getSafeSvg(item.svgIcon)" class="icon-svg"></span>
+        </div>
+
+        <!-- Contenu de la carte -->
+        <div class="card-content">
+          <h3 class="degree-title">{{ item.degree }}</h3>
+          <span class="period-text">{{ item.period }}</span>
+          <p class="item-details" [innerHTML]="item.details"></p>
+           <h4 class="institution-name">{{ item.institution }}</h4>
+        </div>
+
+      </div>
+    }
+  </div>
+
+</section>
