@@ -4,7 +4,9 @@
     <!-- Ce conteneur force le logo à gauche et le bouton à droite -->
     <div class="navbar-header">
         <div class="navbar-logo">
-            <span class="logo-badge">mamy@portfolio</span>
+            <a [routerLink]="['/']">
+                <span class="logo-badge">mamy@portfolio</span>
+            </a>
         </div>
 
         <button class="menu-toggle" [class.active]="isMenuOpen()" (click)="toggleMenu()" aria-label="Ouvrir le menu">
