@@ -54,9 +54,9 @@ export class ProjectService {
         "Système de paiement partiel sécurisé avec tableau de suivi des relances clients."
       ],
       technologies: [
-        { name: "Java", svgIconUrl: this.svgLogos.java },
+        { name: "Java 17", svgIconUrl: this.svgLogos.java },
         { name: "Java Servlet", svgIconUrl: this.svgLogos.java },
-        { name: "PostgreSQL", svgIconUrl: this.svgLogos.postgresql },
+        { name: "PostgreSQL 17.5", svgIconUrl: this.svgLogos.postgresql },
         { name:"TailwindCSS",svgIconUrl:this.svgLogos.tailwindcss},
       ],
       coverImage: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=600",
@@ -71,6 +71,11 @@ export class ProjectService {
         this.rootPath+"CINEMA/CINEMA-8.png",
         this.rootPath+"CINEMA/CINEMA-9.png",
         this.rootPath+"CINEMA/CINEMA-10.png",
+        this.rootPath+"CINEMA/CINEMA-11.png",
+        this.rootPath+"CINEMA/CINEMA-12.png",
+        this.rootPath+"CINEMA/CINEMA-13.png",
+        this.rootPath+"CINEMA/CINEMA-14.png",
+        this.rootPath+"CINEMA/CINEMA-15.png",
       ]
     },
     {
@@ -87,15 +92,23 @@ export class ProjectService {
         "Génération de rapports de situation détaillés exportables sur intervalles de dates."
       ],
       technologies: [
-        { name: "Angular", svgIconUrl: this.svgLogos.angular },
+        { name: "Angular 21", svgIconUrl: this.svgLogos.angular },
         { name: "NodeJS", svgIconUrl: this.svgLogos.nodejs },
         { name: "SQL Server", svgIconUrl: this.svgLogos.sqlserver},
         { name:"TailwindCSS",svgIconUrl:this.svgLogos.tailwindcss}
       ],
       coverImage: "https://images.unsplash.com/photo-1516448620398-c5f44bf9f441?q=80&w=600",
-      gallery: [
-        "https://images.unsplash.com/photo-1516448620398-c5f44bf9f441?q=80&w=600",
-        "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=600"
+       gallery: [
+        this.rootPath+"AKOHO/AKOHO-1.png",
+        this.rootPath+"AKOHO/AKOHO-2.png",
+        this.rootPath+"AKOHO/AKOHO-3.png",
+        this.rootPath+"AKOHO/AKOHO-4.png",
+        this.rootPath+"AKOHO/AKOHO-5.png",
+        this.rootPath+"AKOHO/AKOHO-6.png",
+        this.rootPath+"AKOHO/AKOHO-7.png",
+        this.rootPath+"AKOHO/AKOHO-8.png",
+        this.rootPath+"AKOHO/AKOHO-9.png",
+        this.rootPath+"AKOHO/AKOHO-10.png",
       ]
     },
     {
@@ -107,19 +120,29 @@ export class ProjectService {
       description: "Application destinée aux bibliothécaires pour la gestion des emprunts, prolongations et retours de livres. Catalogue avec filtre par catégorie et auteur.",
       features: [
         "Gestion fluide du cycle de vie des livres : emprunts, prolongations et retours.",
-        "Catalogue d'ouvrages performant avec système de filtres multicritères (auteurs, catégories).",
+        "Gestion d'abonnement et resérvation d'exemplaire",
         "Suivi en temps réel de la disponibilité des exemplaires physiques.",
         "Système de verrouillage automatique d'un exemplaire dès son emprunt jusqu'à sa restitution."
       ],
       technologies: [
-        { name: "Spring Boot", svgIconUrl: this.svgLogos.springboot },
-        { name: "PostgreSQL", svgIconUrl: this.svgLogos.postgresql },
+        { name: "Spring Boot 3.5.3", svgIconUrl: this.svgLogos.springboot },
+        { name: "PostgreSQL 17.5", svgIconUrl: this.svgLogos.postgresql },
         { name:'CSS',svgIconUrl:this.svgLogos.css3}
       ],
       coverImage: "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?q=80&w=600",
       gallery: [
-        "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?q=80&w=600",
-        "https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=600"
+        this.rootPath+"BIBLIOTHEQUE/BIBLIOTHEQUE-1.png",
+        this.rootPath+"BIBLIOTHEQUE/BIBLIOTHEQUE-2.png",
+        this.rootPath+"BIBLIOTHEQUE/BIBLIOTHEQUE-3.png",
+        this.rootPath+"BIBLIOTHEQUE/BIBLIOTHEQUE-4.png",
+        this.rootPath+"BIBLIOTHEQUE/BIBLIOTHEQUE-5.png",
+        this.rootPath+"BIBLIOTHEQUE/BIBLIOTHEQUE-6.png",
+        this.rootPath+"BIBLIOTHEQUE/BIBLIOTHEQUE-7.png",
+        this.rootPath+"BIBLIOTHEQUE/BIBLIOTHEQUE-8.png",
+        this.rootPath+"BIBLIOTHEQUE/BIBLIOTHEQUE-9.png",
+        this.rootPath+"BIBLIOTHEQUE/BIBLIOTHEQUE-10.png",
+        this.rootPath+"BIBLIOTHEQUE/BIBLIOTHEQUE-11.png",
+        this.rootPath+"BIBLIOTHEQUE/BIBLIOTHEQUE-12.png",
       ]
     }
   ];
