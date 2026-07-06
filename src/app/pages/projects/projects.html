@@ -9,9 +9,10 @@
   <div class="projects-grid">
     
     @for(project of projectsList; track project.id) {
+      <!-- 1. La carte redevient un élément passif (on retire le click et le cursor:pointer) -->
       <article class="project-card">
         
-        <!-- HAUT DE CARTE : Image de couverture avec dégradé doux -->
+        <!-- HAUT DE CARTE -->
         <div class="card-cover" [style.background-image]="'url(' + project.coverImage + ')'">
           <div class="cover-overlay">
             
@@ -20,26 +21,33 @@
               <p>{{ project.subtitle }}</p>
             </div>
             
-            <button class="btn-action" aria-label="Voir le code source">
-              Source Code
+            <!-- 2. C'est désormais UNIQUEMENT ce bouton qui déclenche l'ouverture au clic -->
+            <button class="btn-action" (click)="openDetails(project)" aria-label="Voir les détails">
+              Details
             </button>
             
           </div>
         </div>
 
-        <!-- BAS DE CARTE : Uniquement la date et la description -->
+        <!-- BAS DE CARTE -->
         <div class="card-details">
-          
           <div class="details-left">
             <span class="period-badge">{{ project.period }}</span>
             <p class="project-desc">{{ project.description }}</p>
           </div>
-
-         
         </div>
 
       </article>
     }
 
   </div>
+
+  <!-- LA MODALE (Inchangée et toujours aussi performante) -->
+  @if (selectedProject) {
+    <app-project-detail 
+      [project]="selectedProject" 
+      (close)="closeDetails()">
+    </app-project-detail>
+  }
+
 </section>

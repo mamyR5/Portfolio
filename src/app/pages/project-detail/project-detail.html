@@ -1,0 +1,142 @@
+<!-- project-detail.html -->
+
+<!-- L'overlay sombre en arrière-plan (cliquer dessus ferme la modale) -->
+<div class="modal-overlay" (click)="onClose()">
+
+    <!-- La boîte de dialogue (on stoppe la propagation du clic pour éviter de fermer en cliquant dedans) -->
+    <div class="modal-card" (click)="$event.stopPropagation()">
+
+        <!-- Bouton de fermeture "X" en haut à droite -->
+        <button class="btn-close" (click)="onClose()"
+            aria-label="Fermer la fenêtre">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+
+        <!-- Grille de détails (Identique à notre superbe design précédent !) -->
+        <div class="detail-grid">
+
+            <!-- COLONNE GAUCHE : Textes et Compétences -->
+            <div class="detail-info-pane">
+
+                <div class="info-header">
+                    <span class="period-text">{{ project.period }}</span>
+                    <h1>{{ project.title }}</h1>
+                    <p class="brief-desc">{{ project.description }}</p>
+                </div>
+
+                <section class="features-section">
+                    <h3>Fonctionnalités clés</h3>
+                    <ul class="features-list">
+                        @for(feature of project.features; track feature) {
+                        <li>{{ feature }}</li>
+                        }
+                    </ul>
+                </section>
+
+                <section class="tech-section">
+                    <h3>Technologies utilisées</h3>
+                    <div class="tech-logos">
+                        @for(tech of project.technologies; track tech.name) {
+                        <div class="tech-item" [title]="tech.name">
+                            <img class="tech-icon"
+                                [src]="tech.svgIconUrl">
+                            <span class="tech-name">{{ tech.name }}</span>
+                        </div>
+                        }
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- BLOC 2 : Galerie d'images avec suivi d'index -->
+            <div class="detail-gallery-pane">
+
+                <!-- Affichage de l'index actuel sur le total (ex: Captures d'écran (1/2)) -->
+                <h3>
+                    Captures d'écran
+                    <span class="badge-index">({{ currentSlideIndex() }}/{{
+                        project.gallery.length }})</span>
+                </h3>
+
+                <div class="gallery-container">
+
+                    <button class="slide-btn left" (click)="slideLeft(slider)"
+                        aria-label="Image précédente">
+                        <svg viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5"><polyline
+                                points="15 18 9 12 15 6"></polyline></svg>
+                    </button>
+
+                    <!-- Ajout de (scroll)="onScroll(slider)" pour suivre le glissement au doigt -->
+                    <div class="gallery-slider" #slider
+                        (scroll)="onScroll(slider)">
+                        @for(image of project.gallery; track image; let i =
+                        $index) {
+                        <!-- Le clic envoie l'index 'i' pour la Lightbox -->
+                        <div class="gallery-item" (click)="zoomImage(i)">
+                            <img [src]="image"
+                                [alt]="'Capture ' + project.title + ' ' + (i + 1)">
+                        </div>
+                        }
+                    </div>
+
+                    <button class="slide-btn right" (click)="slideRight(slider)"
+                        aria-label="Image suivante">
+                        <svg viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5"><polyline
+                                points="9 18 15 12 9 6"></polyline></svg>
+                    </button>
+
+                </div>
+
+                <p class="swipe-indicator">← Cliquez pour agrandir — Glissez
+                    pour faire défiler →</p>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+@if (activeZoomImage()) {
+  <div class="lightbox-overlay" (click)="closeZoom()">
+    
+    <button class="lightbox-close-btn" (click)="closeZoom()" aria-label="Fermer le plein écran">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+
+    <!-- Bouton Précédent Lightbox (Caché s'il n'y a pas d'image précédente) -->
+    @if (activeZoomIndex()! > 0) {
+      <button class="lightbox-arrow left" (click)="prevZoomImage($event)" aria-label="Précédent">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+    }
+
+    <!-- Conteneur Image principale -->
+    <div class="lightbox-content" (click)="$event.stopPropagation()">
+      <img [src]="activeZoomImage()" alt="Capture d'écran agrandie">
+      
+      <!-- Indicateur d'index en bas de l'image (ex: 1 / 2) -->
+    </div>
+
+    <div>
+        <span class="lightbox-counter">{{ activeZoomIndex()! + 1 }} / {{ project.gallery.length }}</span>
+    </div>
+
+
+    <!-- Bouton Suivant Lightbox (Caché s'il n'y a pas d'image suivante) -->
+    @if (activeZoomIndex()! < project.gallery.length - 1) {
+      <button class="lightbox-arrow right" (click)="nextZoomImage($event)" aria-label="Suivant">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+    }
+
+  </div>
+}
