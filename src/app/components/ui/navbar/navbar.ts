@@ -20,7 +20,7 @@ export class Navbar {
   @Output() menuStateChange = new EventEmitter<boolean>();
 
   navLinks: NavLink[] = [
-    { path: '/', label: 'Acceuil' },
+    { path: '/', label: 'Accueil' },
     { path: '/about', label: 'À propos' },
     { path: '/skills', label: 'Compétences' },
     { path: '/projects', label: 'Projets' }
